@@ -115,7 +115,7 @@
       - always
 
 - name: "PRELIM | 5.3.4 | Find all sudoers files."
-  ansible.builtin.shell: "find /etc/sudoers /etc/sudoers.d/ -type f ! -name '*~' ! -name '*.*' ! -name 'ansible'"
+  ansible.builtin.shell: "find /etc/sudoers /etc/sudoers.d/ -type f ! -name '*~' ! -name '*.*' ! -name 'ansible' ! -name '90-cloud-init-users'"
   changed_when: false
   failed_when: false
   check_mode: false
