@@ -44,6 +44,7 @@
 - name: "PRELIM | Run apt update"
   ansible.builtin.package:
       update_cache: true
+  become: yes
   when:
       - ubtu22cis_rule_1_3_1 or
         ubtu22cis_rule_1_9
@@ -114,7 +115,7 @@
       - always
 
 - name: "PRELIM | 5.3.4 | Find all sudoers files."
-  ansible.builtin.shell: "find /etc/sudoers /etc/sudoers.d/ -type f ! -name '*~' ! -name '*.*'"
+  ansible.builtin.shell: "find /etc/sudoers /etc/sudoers.d/ -type f ! -name '*~' ! -name '*.*' ! -name 'ansible'"
   changed_when: false
   failed_when: false
   check_mode: false
