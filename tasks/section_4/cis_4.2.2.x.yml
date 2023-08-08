@@ -97,7 +97,7 @@
             insertafter: "{{ item.insertafter }}"
         with_items:
             - { regexp: '^\*.emerg', line: '*.emerg                         :omusrmsg:*', insertafter: '^# Emergencies are sent to everybody logged in' }
-            - { regexp: '^auth,authpriv.\*', line: 'auth,authpriv.*                  /var/log/secure', insertafter: '^# First some standard log files.  Log by facility' }
+            - { regexp: '^auth,authpriv.\*', line: 'auth,authpriv.*                  /var/log/auth.log', insertafter: '^# First some standard log files.  Log by facility' }
             - { regexp: '^mail.\*|^#mail.\*', line: 'mail.*                          -/var/log/mail', insertafter: '^# First some standard log files' }
             - { regexp: '^cron.\*|^cron.\*', line: 'mail.*                          -/var/log/cron', insertafter: '^# First some standard log files' }
             - { regexp: '^mail.info|^#mail.info', line: 'mail.info                      -/var/log/mail.info', insertafter: '^# Logging for the mail system' }
